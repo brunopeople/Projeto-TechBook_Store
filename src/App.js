@@ -57,7 +57,7 @@ render(){
       <Header/>
         <div className="container mb-10">
            <h1>TechBook Store</h1>
-          <Tabela autores={this.state.autores} removeAutor = {this.removeAutor}/>
+          <Tabela autores = {this.state.autores} removeAutor = {this.removeAutor} />
           <Formulario escutadorDeSubmit={this.escutadorDeSubmit}/>
      </div>
     </Fragment>

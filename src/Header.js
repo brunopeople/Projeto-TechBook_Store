@@ -1,19 +1,19 @@
 import React from 'react';
+import LinkWrapper from './LinkWrapper';
 
 const Header = () => {
 	return(
-
 		<nav>
 			<div className="nav-wrapper indigo lighten-2">
-			 <a href="/" className="brande-logo ml-3">Techbook Store</a>
+			 <LinkWrapper to="/" className="brande-logo ml-3">Techbook Store</a>
 			 <ul id="nav-mobile" className="right">
-				<li><a href="/">Autores</a></li>
-				<li><a href="/">Livros</a></li>
-				<li><a href="/">Sobre</a></li>
+				<li><LinkWrapper to="/">Autores</LinkWrapper></li>
+				<li><LinkWrapper to="/">Livros</LinkWrapper></li>
+				<li><LinkWrapper to="/">Sobre</LinkWrapper></li>
 			 </ul>
 			</div>
 		</nav>
-	)
+	);
 }
 
 export default Header; 
