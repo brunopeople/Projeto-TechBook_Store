@@ -4,7 +4,7 @@ import Header from './Header';
 const Sobre = () => {
 	return (
 	 <Fragment>
-	 	</Header>
+	 	<Header/>
 	 	<h1>Sobre</h1>
 	 </Fragment>
  	);
