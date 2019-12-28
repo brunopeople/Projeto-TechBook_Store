@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import FormValidator from './FormValidator';
-import PopUp from './PopUp'; 
+import FormValidator from '../../utils/FormValidator';
+import PopUp from '../../utils/PopUp'
 
 class Formulario extends Component {
 
@@ -59,12 +59,31 @@ class Formulario extends Component {
 		}
 	}
 
-	escutadorDeInput = event =>{
+	escutadorDeInput = event => {
 		const {name, value} = event.target;
 
 		this.setState({
 			[name]:value
 		});
+	}
+
+	submitFormulario = () => {
+		const validacao = this.validador.valida(this.state);
+
+		if(validacao.isValid){
+			this.props.escutadorDeSubmit(this.state);
+			this.setState(this.stateInicial);
+		}else{
+			const { nome, livro, preco} = validacao;
+			const campos = [nome, livro, preco];
+			const camposInvalidos = campos.filter(elem => {
+				return elem.isValid;
+			});
+
+			camposInvalidos.forEach(campo => {
+				PopUp.exibeMensagem('error', campo.mensagem);
+			});
+		}
 	}
 
 	render(){
